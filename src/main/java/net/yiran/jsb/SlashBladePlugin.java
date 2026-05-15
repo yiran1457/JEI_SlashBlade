@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yiran.jsb.ingredient.SAIngredient;
 import net.yiran.jsb.ingredient.SEIngredient;
+import net.yiran.jsb.recipe.BladeRegisterManager;
 import net.yiran.jsb.recipe.category.EntityDropEntryRecipeCategory;
 import net.yiran.jsb.recipe.category.SARecipeCategory;
 import net.yiran.jsb.recipe.category.SERecipeCategory;
@@ -33,6 +34,7 @@ public class SlashBladePlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
+        BladeRegisterManager.build();
         registration.addRecipes(SARecipeCategory.SA_TYPE, SlashArtsRegistry.REGISTRY.get().getValues().stream().toList());
         registration.addRecipes(SERecipeCategory.SE_TYPE, SpecialEffectsRegistry.REGISTRY.get().getValues().stream().toList());
         Stream<EntityDropEntry> drops = Minecraft.getInstance().getConnection().registryAccess().registryOrThrow(EntityDropEntry.REGISTRY_KEY).stream();

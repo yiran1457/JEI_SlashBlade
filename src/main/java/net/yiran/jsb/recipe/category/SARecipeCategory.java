@@ -1,8 +1,5 @@
 package net.yiran.jsb.recipe.category;
 
-import net.yiran.jsb.Config;
-import net.yiran.jsb.JEISlashBlade;
-import net.yiran.jsb.ingredient.SAIngredient;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
@@ -11,13 +8,16 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.common.gui.elements.DrawableText;
-import mods.flammpfeil.slashblade.SlashBladeCreativeGroup;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import mods.flammpfeil.slashblade.registry.SlashArtsRegistry;
 import mods.flammpfeil.slashblade.slasharts.SlashArts;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.yiran.jsb.Config;
+import net.yiran.jsb.JEISlashBlade;
+import net.yiran.jsb.ingredient.SAIngredient;
+import net.yiran.jsb.recipe.BladeRegisterManager;
 
 import java.util.List;
 
@@ -57,9 +57,7 @@ public class SARecipeCategory implements IRecipeCategory<SlashArts> {
                 .addIngredient(SAIngredient.INSTANCE, slashArts);
         builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT)
                 .addIngredient(SAIngredient.INSTANCE, slashArts);
-        List<ItemStack> items = SlashBladeCreativeGroup.SLASHBLADE_GROUP.get().getDisplayItems()
-                .stream()
-                .filter(stack -> stack.getItem() instanceof ItemSlashBlade)
+        List<ItemStack> items = BladeRegisterManager.getAllBlades().stream()
                 .filter(stack -> stack.getCapability(ItemSlashBlade.BLADESTATE).map(state -> state.getSlashArts().equals(slashArts)).orElse(false))
                 .toList();
         if (!items.isEmpty()) {
@@ -71,9 +69,9 @@ public class SARecipeCategory implements IRecipeCategory<SlashArts> {
 
     @Override
     public void createRecipeExtras(IRecipeExtrasBuilder builder, SlashArts recipe, IFocusGroup focuses) {
-        builder.addText(recipe.getDescription(), getWidth()-20, 10)
+        builder.addText(recipe.getDescription(), getWidth() - 20, 10)
                 .setPosition(20, 5);
-        builder.addScrollBoxWidget(getWidth() - 10, getHeight() - 30, 5,25 )
+        builder.addScrollBoxWidget(getWidth() - 10, getHeight() - 30, 5, 25)
                 .setContents(List.of(Component.translatable(recipe.getDescriptionId() + ".desc")));
     }
 

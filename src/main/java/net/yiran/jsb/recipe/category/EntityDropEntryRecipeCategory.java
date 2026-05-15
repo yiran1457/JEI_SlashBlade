@@ -1,34 +1,23 @@
 package net.yiran.jsb.recipe.category;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.common.gui.elements.DrawableText;
-import mods.flammpfeil.slashblade.SlashBlade;
 import mods.flammpfeil.slashblade.event.drop.EntityDropEntry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yiran.jsb.JEISlashBlade;
 import net.yiran.jsb.drawable.EntityDrawable;
-import org.joml.Quaternionf;
+import net.yiran.jsb.recipe.BladeRegisterManager;
 
 @SuppressWarnings({"removal", "all"})
 public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDropEntry> {
@@ -83,17 +72,17 @@ public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDrop
             });
         }
         entitySlot.addItemLike(entityItem);
-        var bladeInfo = SlashBlade.getSlashBladeDefinitionRegistry(Minecraft.getInstance().level).get(entityDropEntry.bladeName());
+        var blade = BladeRegisterManager.getBlade(entityDropEntry.bladeName());
         IRecipeSlotBuilder bladeSlot = builder.addOutputSlot(64 - 8, 6)
                 .setStandardSlotBackground();
-        if (bladeInfo == null) {
+        if (blade == null) {
             bladeSlot.addTooltipCallback((iRecipeSlotView, components) -> {
                         components.clear();
                         components.add(Component.translatable("jsb.blade.not_registered", entityDropEntry.bladeName()));
                     })
                     .addItemLike(Items.BARRIER);
         } else {
-            bladeSlot.addItemStack(bladeInfo.getBlade());
+            bladeSlot.addItemStack(blade);
         }
         entityDropEntry.dropRate();
         entityDropEntry.requestSlashBladeKill();

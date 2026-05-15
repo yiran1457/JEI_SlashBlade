@@ -1,25 +1,24 @@
 package net.yiran.jsb.recipe.category;
 
-import mezz.jei.api.gui.placement.HorizontalAlignment;
-import net.minecraft.network.chat.MutableComponent;
-import net.yiran.jsb.Config;
-import net.yiran.jsb.JEISlashBlade;
-import net.yiran.jsb.ingredient.SEIngredient;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.common.gui.elements.DrawableText;
-import mods.flammpfeil.slashblade.SlashBladeCreativeGroup;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import mods.flammpfeil.slashblade.registry.SpecialEffectsRegistry;
 import mods.flammpfeil.slashblade.registry.specialeffects.SpecialEffect;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.yiran.jsb.Config;
+import net.yiran.jsb.JEISlashBlade;
+import net.yiran.jsb.ingredient.SEIngredient;
+import net.yiran.jsb.recipe.BladeRegisterManager;
 
 import java.util.List;
 
@@ -59,9 +58,7 @@ public class SERecipeCategory implements IRecipeCategory<SpecialEffect> {
                 .addIngredient(SEIngredient.INSTANCE, specialEffect);
         builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT)
                 .addIngredient(SEIngredient.INSTANCE, specialEffect);
-        List<ItemStack> items = SlashBladeCreativeGroup.SLASHBLADE_GROUP.get().getDisplayItems()
-                .stream()
-                .filter(stack -> stack.getItem() instanceof ItemSlashBlade)
+        List<ItemStack> items = BladeRegisterManager.getAllBlades().stream()
                 .filter(stack -> stack.getCapability(ItemSlashBlade.BLADESTATE).map(state -> state.getSpecialEffects().contains(SpecialEffectsRegistry.REGISTRY.get().getKey(specialEffect))).orElse(false))
                 .toList();
         if (!items.isEmpty()) {
