@@ -61,7 +61,8 @@ public class SARecipeCategory implements IRecipeCategory<SlashArts> {
                 .filter(stack -> stack.getCapability(ItemSlashBlade.BLADESTATE).map(state -> state.getSlashArts().equals(slashArts)).orElse(false))
                 .toList();
         if (!items.isEmpty()) {
-            builder.addInputSlot(0, 0)
+            builder.addInputSlot(5, 2)
+                    .setStandardSlotBackground()
                     .addItemStacks(items);
         }
 
@@ -70,7 +71,7 @@ public class SARecipeCategory implements IRecipeCategory<SlashArts> {
     @Override
     public void createRecipeExtras(IRecipeExtrasBuilder builder, SlashArts recipe, IFocusGroup focuses) {
         builder.addText(recipe.getDescription(), getWidth() - 20, 10)
-                .setPosition(20, 5);
+                .setPosition(25, 7);
         builder.addScrollBoxWidget(getWidth() - 10, getHeight() - 30, 5, 25)
                 .setContents(List.of(Component.translatable(recipe.getDescriptionId() + ".desc")));
     }
