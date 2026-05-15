@@ -57,6 +57,8 @@ public class SERecipeCategory implements IRecipeCategory<SpecialEffect> {
     public void setRecipe(IRecipeLayoutBuilder builder, SpecialEffect specialEffect, IFocusGroup iFocusGroup) {
         builder.addInvisibleIngredients(RecipeIngredientRole.INPUT)
                 .addIngredient(SEIngredient.INSTANCE, specialEffect);
+        builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT)
+                .addIngredient(SEIngredient.INSTANCE, specialEffect);
         List<ItemStack> items = SlashBladeCreativeGroup.SLASHBLADE_GROUP.get().getDisplayItems()
                 .stream()
                 .filter(stack -> stack.getItem() instanceof ItemSlashBlade)

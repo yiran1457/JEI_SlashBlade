@@ -55,6 +55,8 @@ public class SARecipeCategory implements IRecipeCategory<SlashArts> {
     public void setRecipe(IRecipeLayoutBuilder builder, SlashArts slashArts, IFocusGroup iFocusGroup) {
         builder.addInvisibleIngredients(RecipeIngredientRole.INPUT)
                 .addIngredient(SAIngredient.INSTANCE, slashArts);
+        builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT)
+                .addIngredient(SAIngredient.INSTANCE, slashArts);
         List<ItemStack> items = SlashBladeCreativeGroup.SLASHBLADE_GROUP.get().getDisplayItems()
                 .stream()
                 .filter(stack -> stack.getItem() instanceof ItemSlashBlade)
