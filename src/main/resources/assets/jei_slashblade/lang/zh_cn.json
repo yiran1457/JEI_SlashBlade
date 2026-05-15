@@ -1,0 +1,10 @@
+{
+  "jsb.se.copiable": "可复制 : %s",
+  "jsb.se.removable": "可删除 : %s",
+  "jsb.se.true": "§aYES",
+  "jsb.se.false": "§cNO ",
+  "jsb.entity.not_registered": "生物未注册: %s",
+  "jsb.blade.not_registered": "拔刀未注册: %s",
+  "se.cialloblade.ciallo.desc": "当你§c挥刀击中目标§r后，会播放两种\"Ciallo～(∠・ω< )⌒★\"。\n\n带有这个se的拔刀剑耀魂值低于§c1000§r且在玩家手中的话会播放\"Ciallo～(∠・ω< )⌒★\"并将耀魂值设置为1000。\n\n当释放§c波刀龙胆§r时，会播放特殊音效。\n\n进行§c御空刀舞§r第一段时，会播放音效\"前辈~\"。\n\n当§c潜行§r后，所有刀光都会播放\"Ciallo～(∠・ω< )⌒★\"。\n\n§m柚子厨蒸鹅心",
+  "slashblade.koseki.desc": "将无铭「无名」放置在刀挂台上,让凋灵炸它一下，就会转换成枯石大刀"
+}
