@@ -54,7 +54,8 @@ public class SEIngredient implements IIngredientType<SpecialEffect>, IIngredient
 
     @Override
     public String getErrorInfo(SpecialEffect specialEffect) {
-        return "SA Ingredient Error";
+        if (specialEffect != null) return "SE Ingredient Error -- " + specialEffect.getDescription().getString();
+        return "SE Ingredient Error";
     }
 
     @Override

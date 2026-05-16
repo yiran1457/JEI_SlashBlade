@@ -54,12 +54,13 @@ public class SAIngredient implements IIngredientType<SlashArts>, IIngredientHelp
 
     @Override
     public String getErrorInfo(SlashArts slashArts) {
+        if (slashArts != null) return "SA Ingredient Error -- " + slashArts.getDescription().getString();
         return "SA Ingredient Error";
     }
 
     @Override
     public void render(GuiGraphics guiGraphics, SlashArts slashArts) {
-        guiGraphics.renderItem(renderItem.get(),0,0 );
+        guiGraphics.renderItem(renderItem.get(), 0, 0);
         Decoration.renderSADecorator(guiGraphics, Minecraft.getInstance().font, slashArts);
     }
 

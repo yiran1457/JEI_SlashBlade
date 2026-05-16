@@ -1,4 +1,6 @@
 {
+  "jsb.title.desc": "拔刀额外描述",
+  "jsb.title.drop": "拔刀击杀掉落",
   "jsb.se.copiable": "可复制 : %s",
   "jsb.se.removable": "可删除 : %s",
   "jsb.se.true": "§aYES",
@@ -6,5 +8,15 @@
   "jsb.entity.not_registered": "生物未注册: %s",
   "jsb.blade.not_registered": "拔刀未注册: %s",
   "se.cialloblade.ciallo.desc": "当你§c挥刀击中目标§r后，会播放两种\"Ciallo～(∠・ω< )⌒★\"。\n\n带有这个se的拔刀剑耀魂值低于§c1000§r且在玩家手中的话会播放\"Ciallo～(∠・ω< )⌒★\"并将耀魂值设置为1000。\n\n当释放§c波刀龙胆§r时，会播放特殊音效。\n\n进行§c御空刀舞§r第一段时，会播放音效\"前辈~\"。\n\n当§c潜行§r后，所有刀光都会播放\"Ciallo～(∠・ω< )⌒★\"。\n\n§m柚子厨蒸鹅心",
-  "slashblade.koseki.desc": "将无铭「无名」放置在刀挂台上,让凋灵炸它一下，就会转换成枯石大刀"
+  "slash_art.slashblade.drive_horizontal.desc": "幻影刃是一个通过向指定方向，发射单道幻影刃，来造成伤害的中程攻击技能。",
+  "slash_art.slashblade.drive_vertical.desc": "幻影刃-纵是一个通过向指定方向，发射单道幻影刃，来造成伤害的远程攻击技能。",
+  "slash_art.slashblade.judgement_cut.desc": "次元斩是一个通过在指定位置召唤伤害性实体来造成伤害的中远程攻击技能。",
+  "slash_art.slashblade.piercing.desc": "平突是一个使玩家朝指定方向突进，并对突进路径上目标造成伤害的近程攻击技能。",
+  "slash_art.slashblade.sakura_end.desc": "终焉樱是一个使玩家朝指定方向挥砍两刀，来造成伤害的近程攻击技能。",
+  "slash_art.slashblade.void_slash.desc": "虚无刀界是一个使玩家经过蓄力朝指定方向挥砍一刀，来造成伤害的近程攻击技能。",
+  "slash_art.slashblade.wave_edge.desc": "波刀龙胆是一个通过召唤并发射幻影刃，来造成伤害的中程攻击技能。",
+  "slash_art.slashblade.none.desc": "无是一个没用任何作用的的技能",
+  "slash_art.slashblade.circle_slash.desc": "円刃是一个通过对身边目标进行全范围挥砍，来造成范围性伤害的近程攻击技能。",
+  "se.slashblade.wither_edge.desc": "如果玩家当前经验等级未达到需求经验等级，则会给予玩家 5 秒的凋零 II。\n如果玩家当前经验等级达到了需求经验等级，则会给予攻击目标 5 秒的凋零 II。",
+  "slashblade.koseki.desc": "将无铭「无名」放置在刀挂台上,让其被凋灵生成的爆炸炸到，无铭将吸收凋灵之力转换成枯石大刀"
 }

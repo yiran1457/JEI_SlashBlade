@@ -5,12 +5,13 @@ import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
+import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.common.gui.elements.DrawableText;
 import mods.flammpfeil.slashblade.event.drop.EntityDropEntry;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -21,8 +22,20 @@ import net.yiran.jsb.recipe.BladeRegisterManager;
 
 @SuppressWarnings({"removal", "all"})
 public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDropEntry> {
-    public static EntityDropEntryRecipeCategory INSTANCE = new EntityDropEntryRecipeCategory();
+    public static EntityDropEntryRecipeCategory INSTANCE;
     public static RecipeType<EntityDropEntry> DROP_TYPE = RecipeType.create(JEISlashBlade.MODID, "drop", EntityDropEntry.class);
+    public IDrawable icon;
+
+    public EntityDropEntryRecipeCategory(IJeiHelpers jeiHelpers) {
+        this.icon = jeiHelpers.getGuiHelper().createDrawableItemStack(BladeRegisterManager.getBlade(ResourceLocation.parse("slashblade:sange")));
+    }
+
+    public static EntityDropEntryRecipeCategory getInstance(IJeiHelpers jeiHelpers) {
+        if (INSTANCE == null) {
+            INSTANCE = new EntityDropEntryRecipeCategory(jeiHelpers);
+        }
+        return INSTANCE;
+    }
 
     @Override
     public RecipeType<EntityDropEntry> getRecipeType() {
@@ -31,7 +44,7 @@ public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDrop
 
     @Override
     public Component getTitle() {
-        return Component.literal("DROP");
+        return Component.translatable("jsb.title.drop");
     }
 
     @Override
@@ -41,12 +54,12 @@ public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDrop
 
     @Override
     public int getHeight() {
-        return 88;//30;
+        return 88;
     }
 
     @Override
     public IDrawable getIcon() {
-        return new DrawableText("DROP", 16, 16, -1);
+        return icon;
     }
 
     @Override
