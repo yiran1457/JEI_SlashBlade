@@ -36,8 +36,8 @@ public class SAIngredient implements IIngredientType<SlashArts>, IIngredientHelp
 
     @Override
     public IIngredientType<SlashArts> getIngredientType() {
-        return null;
-    }
+        return this;
+    } //老大这里真的要用 null 吗？
 
     @Override
     public String getDisplayName(SlashArts slashArts) {

@@ -24,8 +24,8 @@ public class SEIngredient implements IIngredientType<SpecialEffect>, IIngredient
 
     @Override
     public IIngredientType<SpecialEffect> getIngredientType() {
-        return null;
-    }
+        return this;
+    } //老大这里真的要用 null 吗？
 
     @Override
     public String getDisplayName(SpecialEffect specialEffect) {
