@@ -1,4 +1,8 @@
 {
+  "emi.category.jei_slashblade.sa": "Special Arts (SA)",
+  "emi.category.jei_slashblade.se": "Special Effects (SE)",
+  "emi.category.jei_slashblade.drop": "SlashBlade Drops",
+  "emi.category.jei_slashblade.desc": "SlashBlade Description",
   "jsb.title.desc": "BladeDesc",
   "jsb.title.drop": "EntityDrop",
   "jsb.se.copiable": "copiable : %s",

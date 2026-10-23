@@ -75,4 +75,9 @@ public class SpecialBladeDescRecipeCategory implements IRecipeCategory<SpecialBl
         builder.addScrollBoxWidget(getWidth() - 10, getHeight() - 40, 5, 35)
                 .setContents(List.of(Component.translatable(recipe.description())));
     }
+
+    @Override
+    public ResourceLocation getRegistryName(SpecialBladeDescData recipe) {
+        return recipe.bladeName();
+    }
 }

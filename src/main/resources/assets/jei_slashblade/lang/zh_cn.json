@@ -1,4 +1,8 @@
 {
+  "emi.category.jei_slashblade.sa": "拔刀剑Special Arts (SA)",
+  "emi.category.jei_slashblade.se": "拔刀剑Special Effects (SE)",
+  "emi.category.jei_slashblade.drop": "拔刀击杀掉落",
+  "emi.category.jei_slashblade.desc": "拔刀额外描述",
   "jsb.title.desc": "拔刀额外描述",
   "jsb.title.drop": "拔刀击杀掉落",
   "jsb.se.copiable": "可复制 : %s",

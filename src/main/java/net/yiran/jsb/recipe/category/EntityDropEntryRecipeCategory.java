@@ -120,4 +120,9 @@ public class EntityDropEntryRecipeCategory implements IRecipeCategory<EntityDrop
 
     }
 
+    @Override
+    public ResourceLocation getRegistryName(EntityDropEntry recipe) {
+        return ResourceLocation.parse("jei_slashblade:drop_" + recipe.bladeName().getNamespace() + "_" + recipe.bladeName().getPath() + "_" + recipe.entityType().getNamespace() + "_" + recipe.entityType().getPath());
+    }
+
 }
